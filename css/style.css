@@ -39,11 +39,11 @@ header img {
 }
 
 .left {
-    left: 5%;
+    left: 18%;
 }
 
 .right {
-    right: 5%;
+    right: 18%;
 }
 
 header h2 {
@@ -87,4 +87,11 @@ header h2 {
 
 .calendar .blank {
     cursor: default;
+}
+
+footer {
+    padding: 1%;
+    color: #929292;
+    text-align: center;
+    background-color: #424242;
 }
