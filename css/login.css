@@ -1,0 +1,38 @@
+html, body {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+section {
+    width: 30%;
+    margin: auto;
+    padding-top: 5%;
+}
+
+section .info {
+    width: 100%;
+    float: left;
+    margin-bottom: 5%;
+
+    color: white;
+    background-color: #d39bcc;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+section .panel {
+    width: 100%;
+
+    border: 1px solid #d39bcc;
+    border-radius: 10px;
+}
+
+section .panel label {
+    color: #d39bcc;
+}
+
+section .panel .btn-group {
+    float: right;
+}

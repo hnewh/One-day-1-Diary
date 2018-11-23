@@ -1,7 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    
+
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -79,10 +79,6 @@ header h2 {
 
 .calendar table td:not(.blank):hover {
     background-color: #d39bcc;
-}
-
-.calendar .today {
-    border: 5px solid #d39bcc;
 }
 
 .calendar .blank {
