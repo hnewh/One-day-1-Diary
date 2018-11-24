@@ -1,0 +1,35 @@
+header {
+    padding: 3%;
+}
+
+section {
+    margin: auto;
+    padding-top: 3%;
+}
+
+section#edit {
+    width: 60%;
+}
+
+section .info {
+    width: 100%;
+    float: left;
+    margin-bottom: 5%;
+
+    color: white;
+    background-color: #d39bcc;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+section#edit .info {
+    margin-bottom: 2%;
+}
+
+section label {
+    color: #d39bcc;
+}
+
+section .btn-group {
+    float: right;
+}

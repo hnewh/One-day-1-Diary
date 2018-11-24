@@ -1,38 +1,55 @@
-html, body {
-    margin: 0;
-    padding: 0;
-
-    font-family: 'Montserrat', sans-serif !important;
+body {
+    background-image: url('../src/bg.jpg');
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 section {
-    width: 30%;
-    margin: auto;
-    padding-top: 5%;
+    width: 60%;
+    margin: 8% auto;
+}
+
+section > * {
+    display: inline-block;
 }
 
 section .info {
-    width: 100%;
+    width: 40%;
+    height: 60vh;
     float: left;
-    margin-bottom: 5%;
 
-    color: white;
-    background-color: #d39bcc;
+    color: #fff;
+    background-color: rgba(211, 155, 204, 0.9);
     text-align: center;
-    border-radius: 10px 10px 0 0;
 }
 
-section .panel {
-    width: 100%;
-
-    border: 1px solid #d39bcc;
-    border-radius: 10px;
+section .info .saying {
+    margin: 45% auto;
 }
 
-section .panel label {
+section .info .saying i {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+section .login {
+    width: 60%;
+    height: 60vh;
+    padding: 5%;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #9d9d9d;
+    background-color: rgba(255, 255, 255, 0.8)
+}
+
+section .login h1 {
     color: #d39bcc;
+    margin-bottom: 4%;
 }
 
-section .panel .btn-group {
+section .login .btn-group {
     float: right;
 }

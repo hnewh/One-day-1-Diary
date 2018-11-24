@@ -158,6 +158,7 @@ function setCal()
 
   //header 월 표시
   $('header h2').html(getMonthInEnglish());
+  $('header h3').html(year);
 }
 
 //달력 초기화
@@ -171,6 +172,26 @@ function refreshCal()
   }
 }
 
+function nextMonth()
+{
+  month++;
+  if(month > 12)
+    {
+      year++;
+      month = 1;
+    }
+}
+
+function beforeMonth()
+{
+  month--;
+  if(month < 1)
+  {
+    year--;
+    month = 12;
+  }
+}
+
 $(window).ready(function(event){
   //header 날짜 표시
   $('header h1').html(today);
@@ -180,13 +201,13 @@ $(window).ready(function(event){
 
   //저번 달
   $('header .left').on("click", function(event){
-    month--;
+    beforeMonth();
     refreshCal();
     setCal();
   });
   //다음 달
   $('header .right').on("click", function(event){
-    month++;
+    nextMonth();
     refreshCal();
     setCal();
   });
