@@ -14,11 +14,13 @@
 </head>
 <body>
     <header>
+        <a class="right" href="login.html">로그인</a>
         <img src="src/left.png" alt="left" class="left">
         <h1></h1>
         <img src="src/right.png" alt="right" class="right">
         <h2></h2>
         <h3></h3>
+        <a class="btn right" href="{% url 'post_new' %}">일기쓰기</a>
     </header>
 
     <div class="wrap">
@@ -38,6 +40,11 @@
         <br><br>
     </div>
 
+    <!-- 일기 쓴 날짜 -->
+    <div id="written" style="display: none;">
+        <!-- ?16 -->
+    </div>
+    
     <footer>
         Copyright &COPY; 2018 by hnewh & lettuce
     </footer>

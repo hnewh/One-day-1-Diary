@@ -172,6 +172,7 @@ function refreshCal()
   }
 }
 
+//다음 달
 function nextMonth()
 {
   month++;
@@ -182,6 +183,7 @@ function nextMonth()
     }
 }
 
+//저번 달
 function beforeMonth()
 {
   month--;
@@ -192,12 +194,38 @@ function beforeMonth()
   }
 }
 
+function setWritten()
+{
+  //일기 쓴 날짜
+  var writtenArr = $('#written').text().trim().replace(/\s/gi, "").split('?');
+  //td array 만들기
+  var td = $('tr').children();
+  var tdArr = new Array();
+  td.each(function(i){
+    tdArr.push(td.eq(i));
+  });
+
+  //앞에 공백 제거
+  writtenArr.shift();
+  //요일 제거
+  for(var i = 0; i < 7; i++)
+    tdArr.shift();
+
+  //일기 쓴 날짜에 written 클래스 추가
+  for(i = 1; i < tdArr.length; i++)
+  {
+    if(writtenArr.includes(tdArr[i].text()))
+      $(tdArr[i]).addClass("written");
+  }
+}
+
 $(window).ready(function(event){
   //header 날짜 표시
   $('header h1').html(today);
 
   //달력 표시
   setCal();
+  setWritten();
 
   //저번 달
   $('header .left').on("click", function(event){
@@ -211,7 +239,4 @@ $(window).ready(function(event){
     refreshCal();
     setCal();
   });
-
-  //날짜 클릭시 글쓰기 페이지로 이동
-  $('.calendar td').attr('onclick', "window.location='{% post_new %}'");
 });

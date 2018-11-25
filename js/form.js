@@ -1,5 +1,5 @@
 var d = new Date();
-var month = d.getMonth();
+var month = d.getMonth() + 1;
 var date = d.getDate();
 
 //월 영어 이름
