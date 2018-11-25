@@ -43,6 +43,7 @@ function isLeapYear()
   }
 }
 
+//5주 계산
 function set5weeks(firstDate, lastDate)
 {
   var date;
@@ -81,6 +82,7 @@ function set5weeks(firstDate, lastDate)
   }
 }
 
+//6주 계산
 function set6weeks(firstDate, lastDate)
 {
   var date;
@@ -121,7 +123,7 @@ function set6weeks(firstDate, lastDate)
   }
 }
 
-//빈 칸이 없을 때
+//firstDate가 0일 때
 function noBlankDate()
 {
   var date = 1;

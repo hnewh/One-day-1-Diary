@@ -1,6 +1,7 @@
 var d = new Date();
-var month = d.getMonth() + 1;
-var date = d.getDate();
+var year = d.getFullYear(); //연도
+var month = d.getMonth() + 1; //월
+var date = d.getDate(); //날짜
 
 //월 영어 이름
 function getMonthInEnglish()
@@ -9,6 +10,7 @@ function getMonthInEnglish()
   return monthList[month-1];
 }
 
+//랜덤 명언
 function getSaying()
 {
   var random = Math.floor(Math.random()*5);
@@ -27,6 +29,7 @@ function getSaying()
     'S.버틀러'
   )
   
+  //명언 추가
   $('#say').html(saying[random]);
   $('#person').html("- " + person[random] + " -");
 }
@@ -38,4 +41,7 @@ $(window).ready(function(event){
 
     //명언 표시
     getSaying();
+
+    // 글쓰기페이지에 날짜 추가
+    $('section#edit input').val(year + "-" + month + "-" + date);
 });
