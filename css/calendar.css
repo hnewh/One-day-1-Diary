@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-header a:not(.btn) {
+header a {
     display: block;
     position: absolute;
     top: 4%;
@@ -22,17 +22,14 @@ header img {
 }
 
 header .btn {
-    position: absolute;
     padding: 0.5%;
-    bottom: 3%;
 
     font-size: 0.8em;
     font-weight: bold;
     color: #d39bcc;
     background-color: #fff;
     border: 0;
-    border-radius: 5px 5px 5px 5px; 
-    text-decoration: none;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .left {
