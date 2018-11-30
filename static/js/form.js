@@ -38,10 +38,11 @@ $(window).ready(function(event){
     //header 날짜 표시
     $('header h1').html(date);
     $('header h2').html(getMonthInEnglish());
+    $('header h3').html(year);
+
+    // 글쓰기페이지에 날짜 추가
+    $('#id_title').val(year + "-" + month + "-" + date);
 
     //명언 표시
     getSaying();
-
-    // 글쓰기페이지에 날짜 추가
-    $('section#edit input').val(year + "-" + month + "-" + date);
 });

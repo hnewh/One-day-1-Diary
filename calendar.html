@@ -1,61 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>하루1기</title>
-    <link rel="shortcut icon" href="src/favicon.ico">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/calendar.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/calendar.js" charset="utf-8"></script>
-</head>
-<body>
-    <header>
-        <!-- 로그인 X -->
-        <a class="right" href="login.html">로그인</a>
-        <!-- 로그인 o -->
-        <a class="right">로그아웃</a>
-        <a class="btn right" href="edit.html">일기쓰기</a>
+{% extends 'blog\base.html' %}
+{% load static %}
 
-        <img src="src/left.png" alt="left" class="left">
-        <h1></h1>
-        <img src="src/right.png" alt="right" class="right">
-<<<<<<< HEAD
-        
-=======
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/calendar.css' %}">
+<script src="{% static 'js/calendar.js' %}" charset="utf-8"></script>
 
->>>>>>> 86fba95dbfb942549a5dcb12fdb7aa2bfb6d6cf4
-        <h2></h2>
-        <h3></h3>
-    </header>
+{% endblock %}
 
-    <div class="wrap">
-        <div class="calendar">
-            <table>
-                <thead>
-                    <th>일</th>
-                    <th>월</th>
-                    <th>화</th>
-                    <th>수</th>
-                    <th>목</th>
-                    <th>금</th>
-                    <th>토</th>
-                </thead>
-            </table>
-        </div>
-        <br><br>
-    </div>
 
-    <!-- 일기 쓴 날짜 -->
-    <div id="written" style="display: none;">
-        <!-- 예시: ?16 -->
-    </div>
+{% block content %}
+
+<header>
+
+    {% if user.is_authenticated %}
+    <a class= "btn right" href="{% url 'post_new' %}">일기쓰기</a>
+    <a class = "right" href="{% url 'logout' %}?next=/">로그아웃</a>
+    {% else %}
+    <a class= "right" href="{% url 'login' %}">로그인</a>
+    {% endif %}
+
+    <img src="{% static 'src/left.png' %}" alt="left" class="left">
+    <h1></h1>
+    <img src="{% static 'src/right.png' %}" alt="right" class="right">
     
-    <footer>
-        Copyright &COPY; 2018 by hnewh & lettuce
-    </footer>
-</body>
-</html>
+    <h2></h2>
+    <h3></h3>
+</header>
+
+<div class="wrap">
+    <div class="calendar">
+        <table>
+            <thead>
+                <th>일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+            </thead>
+        </table>
+    </div>
+    <br><br>
+</div>
+
+{% if user.is_authenticated %}
+<div id="currentUser" style="display: none;">
+    <p>{{ user }}</p>
+</div>
+<!-- 일기 쓴 유저 -->
+<div id="user" style="display : none;" >
+    {% for u in post %}
+        <p>{{ u.author }}</p>
+    {% endfor %}
+</div>
+
+<!-- 일기 쓴 날짜 -->
+<div id="written" style="display: none;">
+    {% for d in date %}
+        <p>{{ d }}</p>
+    {% endfor %}
+</div>
+
+<div id="pk" style="display: none;">
+    {% for p in post %}
+        <p>{{ p.pk }}</p>
+    {% endfor %}
+</div>
+
+{% else %}
+{% endif %}
+    
+<footer>
+    Copyright &COPY; 2018 by hnewh & lettuce
+</footer>
+{% endblock %}
+

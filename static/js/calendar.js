@@ -196,29 +196,88 @@ function beforeMonth()
   }
 }
 
-function setWritten()
+function getWritten()
 {
-  //일기 쓴 날짜
-  var writtenArr = $('#written').text().trim().replace(/\s/gi, "").split('?');
-  //td array 만들기
+  //일기 쓴 날짜 배열
+  var writtenDiv = $('#written').children();
+  var writtenDateArr = new Array();
+  var writtenMonthArr = new Array();
+  var writtenYearArr = new Array();
+  writtenDiv.each(function(i){
+    string = writtenDiv.eq(i).text().split("-");
+    writtenYearArr.push(string[0]);
+    writtenMonthArr.push(string[1]);
+    writtenDateArr.push(string[2]);
+  });
+
+  var user = $('#currentUser p').text();
+  var userDiv = $('#user').children();
+  var userArr = new Array();
+  userDiv.each(function(i){
+    userArr.push(userDiv.eq(i).text());
+  });
+
+  //td 배열
   var td = $('tr').children();
   var tdArr = new Array();
   td.each(function(i){
     tdArr.push(td.eq(i));
   });
 
-  //앞에 공백 제거
-  writtenArr.shift();
   //요일 제거
   for(var i = 0; i < 7; i++)
     tdArr.shift();
 
-  //일기 쓴 날짜에 written 클래스 추가
+  for(var i = 0; i < writtenDateArr.length; i++)
+  {
+    if(userArr[i] == user && writtenMonthArr[i] == month && writtenYearArr[i] == year)
+      addWrittenClass(tdArr, writtenDateArr)
+  }
+
+  //일기 쓴 날짜 배열에 오늘 포함시 일기쓰기 버튼 숨김
+  for(var i = 0; i < writtenDateArr.length; i++)
+  {
+    if(userArr[i] == user && writtenMonthArr[i] == month && writtenYearArr[i] == year && writtenDateArr[i] == today)
+      $('.btn.right').hide();
+  }
+}
+
+//일기 쓴 날짜에 written 클래스 추가
+function addWrittenClass(tdArr, writtenDateArr)
+{
   for(i = 1; i < tdArr.length; i++)
   {
-    if(writtenArr.includes(tdArr[i].text()))
+    if(writtenDateArr.includes(tdArr[i].text()))
       $(tdArr[i]).addClass("written");
   }
+}
+
+function getPK(date)
+{
+  var index;
+
+  //일기 쓴 날짜 배열
+  var writtenDiv = $('#written').children();
+  var writtenArr = new Array();
+  writtenDiv.each(function(i){
+    writtenArr.push(writtenDiv.eq(i).text().split("-")[2]);
+  });
+
+  for(var i = 0; i < writtenArr.length; i++)
+  {
+    if(writtenArr[i] == date)
+      index = i;
+  }
+
+  //pk 배열
+  var pkDiv = $('#pk').children();
+  var pkArr = new Array();
+  pkDiv.each(function(i){
+    pkArr.push(pkDiv.eq(i).text());
+  });
+
+  //클릭된 날짜의 pk 반환
+  return pkDiv[index].innerHTML;
 }
 
 $(window).ready(function(event){
@@ -227,18 +286,24 @@ $(window).ready(function(event){
 
   //달력 표시
   setCal();
-  setWritten();
+  getWritten();
 
   //저번 달
-  $('header .left').on("click", function(event){
+  $('header img.left').on("click", function(event){
     beforeMonth();
     refreshCal();
     setCal();
+    getWritten();
   });
   //다음 달
-  $('header .right').on("click", function(event){
+  $('header img.right').on("click", function(event){
     nextMonth();
     refreshCal();
     setCal();
+    getWritten();
+  });
+
+  $('.written').on("click", function(event){
+    window.location.href = "/post/" + getPK($(this).text());
   });
 });

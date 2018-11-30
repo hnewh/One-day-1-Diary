@@ -26,6 +26,10 @@ section#edit .info {
     margin-bottom: 2%;
 }
 
+section .date {
+    cursor: pointer;
+}
+
 section label {
     color: #d39bcc;
 }
@@ -50,4 +54,8 @@ section#details span.date {
 section#details div.panel {
     width: 100%;
     height: 50vh;
+}
+
+.disabled {
+    pointer-events: none;
 }

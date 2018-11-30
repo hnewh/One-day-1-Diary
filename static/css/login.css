@@ -9,16 +9,17 @@ body {
 
 section {
     width: 60%;
-    margin: 8% auto;
+    margin: 10% auto;
 }
 
 section > * {
     display: inline-block;
+    height: 50vh;
+    min-height: 500px;
 }
 
 section .info {
     width: 40%;
-    height: 60vh;
     float: left;
 
     color: #fff;
@@ -37,7 +38,6 @@ section .info .saying i {
 
 section .login {
     width: 60%;
-    height: 60vh;
     padding: 5%;
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

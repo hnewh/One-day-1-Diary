@@ -21,9 +21,17 @@ header img {
     top: 40%;
 }
 
+.left {
+    left: 18%;
+}
+
+.right {
+    right: 18%;
+}
+
 header .btn {
     top: 4%;
-    right: 23.5%;
+    right: 24%;
     padding: 0.5%;
 
     font-size: 0.8em;
@@ -32,14 +40,6 @@ header .btn {
     background-color: #fff;
     border: 0;
     border-radius: 5px 5px 5px 5px;
-}
-
-.left {
-    left: 18%;
-}
-
-.right {
-    right: 18%;
 }
 
 .calendar table, th, td {

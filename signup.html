@@ -1,0 +1,26 @@
+{% extends 'blog\base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="{% static 'js/form.js' %}"></script>    
+{% endblock %}
+
+{% block content %}
+
+<section id="signup">
+    <div class="info">
+        <div class="saying">
+            <h2>오늘의 명언</h2>
+            <i id="say"></i>
+            <br><i id="person"></i>
+        </div>
+    </div>
+    <div class="login">
+        <h1>하루1기</h1>
+        <h4>더 많은 서비스를 이용하시려면 회원가입 해주세요</h4><br>
+        {% include 'include/form.html' with form=signup_form submit_title='회원가입' %}
+    </div>
+</section>
+{% endblock %}

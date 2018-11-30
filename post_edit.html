@@ -1,0 +1,55 @@
+{% extends 'blog\base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="{% static 'js/form.js' %}"></script>
+
+{% endblock %}
+
+{% block content %}
+<header>
+    <h1></h1>
+    <h2></h2>
+</header>
+
+<section>
+        <div class="panel-body">
+            <form method="post">
+                {% csrf_token %}
+    
+                {% for field in form.visible_fields %}
+                <div class="form-group">
+                    {% if field.label == 'Date' %}
+                        {{ field.label_tag }}
+                        {% render_field field style="resize: none;" class="form-control disabled"%}
+                    {% endif %}
+                    {% if field.label == 'Weather' %}
+                        {{ field.label_tag }}
+                        {% render_field field style="resize: none;" class="form-control"%}
+                    {% endif %}
+                    {% if field.label == 'Content' %}
+                        {{ field.label_tag }}
+                        {% render_field field style="resize: none;" class="form-control"%}
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <div class="form-group" style="display: none;">
+                    <label for="isWritten">작성 여부</label>
+                    <input type="text" value="true">
+                </div>
+                <div class="btn-group">                      
+                    <button type="submit" class="btn btn-info" name="save" value="저장">저장</button>
+                    <a href="{% url 'calender' %}" class="btn btn-link">돌아가기</a>
+                </div>
+            </form>
+        </div>
+    <br><br>
+</section>
+<footer>
+    Copyright &COPY; 2018 by hnewh & lettuce
+</footer>
+
+{% endblock %}
