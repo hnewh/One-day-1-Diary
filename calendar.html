@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'blog\base.html' %}
 {% load static %}
 
@@ -18,6 +19,53 @@
     {% else %}
     <a class= "right" href="{% url 'login' %}">로그인</a>
     {% endif %}
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>하루1기</title>
+    <link rel="shortcut icon" href="src/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/calendar.js" charset="utf-8"></script>
+</head>
+<body>
+    <header>
+        <!-- 로그인 X -->
+        <a class="right" href="login.html">로그인</a>
+        <!-- 로그인 o -->
+        <a class="right">로그아웃</a>
+        <a class="btn right" href="edit.html">일기쓰기</a>
+
+        <img src="src/left.png" alt="left" class="left">
+        <h1></h1>
+        <img src="src/right.png" alt="right" class="right">
+        <h2></h2>
+        <h3></h3>
+    </header>
+
+    <div class="wrap">
+        <div class="calendar">
+            <table>
+                <thead>
+                    <th>일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                </thead>
+            </table>
+        </div>
+        <br><br>
+    </div>
+>>>>>>> 86e48e12855e761c1285eac1e4739ead01b47988
 
     <img src="{% static 'src/left.png' %}" alt="left" class="left">
     <h1></h1>
